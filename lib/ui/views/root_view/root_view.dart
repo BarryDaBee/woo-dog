@@ -1,5 +1,6 @@
 import 'package:acumen_app/core/exports.dart';
 import 'package:acumen_app/core/locator.dart';
+import 'package:acumen_app/ui/views/chat_view/chat_home_view.dart';
 import 'package:acumen_app/ui/views/root_view/root_view_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
@@ -14,8 +15,8 @@ class RootView extends StatelessWidget {
         return const HomeView();
       // case 1:
       //   return const HomeView();
-      // case 2:
-      //   return const HomeView();
+      case 2:
+        return const ChatHomeView();
       // case 3:
       //   return const HomeView();
       default:

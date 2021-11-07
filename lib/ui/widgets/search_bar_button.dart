@@ -28,6 +28,14 @@ class SearchBarButton extends StatelessWidget {
             clipBehavior: Clip.none,
             children: [
               SvgPicture.asset('filter'.svg),
+              const Positioned(
+                top: -2,
+                right: -2,
+                child: CircleAvatar(
+                  backgroundColor: AppColors.red,
+                  radius: 3.5,
+                ),
+              ),
             ],
           ),
         ],
