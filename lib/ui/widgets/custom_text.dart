@@ -8,6 +8,7 @@ class CustomText extends StatelessWidget {
   final TextAlign? textAlign;
   final Color? color;
   final double? letterSpacing;
+  final TextDecoration? decoration;
 
   final double? height;
   const CustomText(
@@ -19,6 +20,7 @@ class CustomText extends StatelessWidget {
     this.color,
     this.height,
     this.letterSpacing,
+    this.decoration,
   }) : super(key: key);
 
   @override
@@ -32,6 +34,9 @@ class CustomText extends StatelessWidget {
         fontWeight: fontWeight,
         height: height,
         letterSpacing: letterSpacing,
+        textStyle: TextStyle(
+          decoration: decoration,
+        ),
       ),
     );
   }

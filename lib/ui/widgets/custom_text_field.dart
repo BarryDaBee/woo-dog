@@ -60,18 +60,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     ),
                   ),
                 ),
-                // EditableText(
-                //   autofocus: true,
-                //   maxLines: null,
-                //   backgroundCursorColor: Colors.amber,
-                //   cursorColor: Colors.green,
-                //   style: const TextStyle(
-                //     color: Colors.black,
-                //   ),
-                //   focusNode: FocusNode(),
-                //
-                //   onSubmitted: (val) {},
-                // ),
               ],
             ),
           ),

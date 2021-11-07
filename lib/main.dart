@@ -1,11 +1,12 @@
-import 'package:acumen_app/ui/views/auth_view/sign_in_view.dart';
+import 'package:acumen_app/ui/views/root_view/root_view.dart';
 import 'package:flutter/material.dart';
 
 import 'core/exports.dart';
-import 'ui/views/auth_view/onboarding_view.dart';
-import 'ui/views/auth_view/sign_up_view.dart';
+import 'core/locator.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
   runApp(const WooDogApp());
 }
 
@@ -22,7 +23,7 @@ class WooDogApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: SignInView(),
+        home: const RootView(),
       ),
     );
   }
