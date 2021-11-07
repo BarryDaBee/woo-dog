@@ -13,6 +13,7 @@ class ChatHomeView extends StatelessWidget {
           'Chat',
           fontWeight: FontWeight.w700,
           fontSize: 34,
+          color: AppColors.black2B,
         ),
         SizedBox(height: 20.h),
         buildSearchBarButton(),
@@ -21,6 +22,7 @@ class ChatHomeView extends StatelessWidget {
           name: 'Will Knowles',
           message: 'Hey! How’s your dog? ∙ 1min',
           imageUrl: 'chat_avatar0'.png,
+          read: true,
         ),
         ChatCard(
           name: 'Ryan Bond',
@@ -31,6 +33,7 @@ class ChatHomeView extends StatelessWidget {
           name: 'Sirena Paul',
           imageUrl: 'chat_avatar2'.png,
           message: 'Hey! Long time no see ∙ 1min',
+          read: true,
         ),
         ChatCard(
           name: 'Matt Chapman',
@@ -82,7 +85,13 @@ class ChatCard extends StatelessWidget {
   final String? imageUrl;
   final String name;
   final String? message;
-  const ChatCard({Key? key, this.imageUrl, required this.name, this.message})
+  final bool read;
+  const ChatCard(
+      {Key? key,
+      this.imageUrl,
+      required this.name,
+      this.message,
+      this.read = false})
       : super(key: key);
 
   @override
@@ -122,10 +131,12 @@ class ChatCard extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          CircleAvatar(
-            backgroundColor: AppColors.orangeDark,
-            radius: 5.r,
-          )
+          read
+              ? CircleAvatar(
+                  backgroundColor: AppColors.orangeDark,
+                  radius: 5.r,
+                )
+              : const SizedBox(),
         ],
       ),
     );

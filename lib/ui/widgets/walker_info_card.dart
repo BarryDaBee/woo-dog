@@ -67,10 +67,11 @@ class WalkerInfoCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomText(
-                  'Mason York',
+                CustomText(
+                  name,
                   color: AppColors.black2B,
                   fontSize: 17,
+                  fontWeight: FontWeight.w500,
                 ),
                 Row(
                   children: [
@@ -81,7 +82,7 @@ class WalkerInfoCard extends StatelessWidget {
                     ),
                     SizedBox(width: 4.w),
                     CustomText(
-                      '${distanceInKm} km from you',
+                      '$distanceInKm km from you',
                       fontSize: 10,
                       color: AppColors.greyA1,
                       fontWeight: FontWeight.w500,

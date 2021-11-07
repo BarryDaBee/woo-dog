@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'core/exports.dart';
 import 'core/locator.dart';
+import 'ui/views/chat_view/chat_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class WooDogApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const RootView(),
+        home: const ChatView(),
       ),
     );
   }
