@@ -45,6 +45,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     keyboardType: widget.inputType,
                     obscureText: shouldHide,
                     controller: _controller,
+                    cursorColor: AppColors.orangeDark,
                     onFieldSubmitted: widget.onSubmitted,
                     maxLines: 1,
                     decoration: const InputDecoration(

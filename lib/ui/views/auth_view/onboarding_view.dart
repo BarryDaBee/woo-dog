@@ -80,7 +80,12 @@ class OnboardingView extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 22.h),
-                      const CustomGradientButton(text: 'Join our community'),
+                      CustomGradientButton(
+                        text: 'Join our community',
+                        onTap: () {
+                          Navigator.pushNamed(context, Routes.signUpView);
+                        },
+                      ),
                       SizedBox(height: 22.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +99,9 @@ class OnboardingView extends StatelessWidget {
                           ),
                           SizedBox(width: 5.w),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, Routes.signUpView);
+                            },
                             child: const CustomText(
                               'Sign in',
                               fontSize: 13,

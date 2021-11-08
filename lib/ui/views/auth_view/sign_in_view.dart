@@ -18,8 +18,13 @@ class SignInView extends StatelessWidget {
           children: [
             SizedBox(height: 50.h),
             InkWell(
-              onTap: () {},
-              child: SvgPicture.asset('arrow_left'.svg),
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Padding(
+                padding: EdgeInsets.all(4.r),
+                child: SvgPicture.asset('arrow_left'.svg),
+              ),
             ),
             SizedBox(height: 22.h),
             const CustomText(
@@ -44,8 +49,11 @@ class SignInView extends StatelessWidget {
               inputType: TextInputType.visiblePassword,
             ),
             SizedBox(height: 104.h),
-            const CustomGradientButton(
+            CustomGradientButton(
               text: 'Sign in',
+              onTap: () {
+                Navigator.pushNamed(context, Routes.rootView);
+              },
             ),
             const Spacer(),
             Padding(

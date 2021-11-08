@@ -9,25 +9,28 @@ class CustomGradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: 58,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.topRight,
-          colors: [
-            AppColors.orangeDark,
-            AppColors.orangeLight,
-          ],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        height: 58,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.topRight,
+            colors: [
+              AppColors.orangeDark,
+              AppColors.orangeLight,
+            ],
+          ),
         ),
-      ),
-      child: CustomText(
-        text,
-        fontSize: 17,
-        fontWeight: FontWeight.w700,
-        color: AppColors.white,
+        child: CustomText(
+          text,
+          fontSize: 17,
+          fontWeight: FontWeight.w700,
+          color: AppColors.white,
+        ),
       ),
     );
   }

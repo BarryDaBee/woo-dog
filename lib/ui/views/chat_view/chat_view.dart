@@ -48,7 +48,7 @@ class ChatView extends StatelessWidget {
                         const CustomText(
                           'Online',
                           fontSize: 13,
-                          color: Color(0xFFAEAEB2),
+                          color: AppColors.lightGrey,
                           fontWeight: FontWeight.w500,
                         )
                       ],
@@ -69,98 +69,31 @@ class ChatView extends StatelessWidget {
                 children: [
                   const CustomText(
                     '1 April 12:00',
-                    color: Color(0xFFAEAEB2),
+                    color: AppColors.lightGrey,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 12.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Bubble(
-                        color: AppColors.orangeDark,
-                        elevation: 0,
-                        showNip: true,
-                        radius: const Radius.circular(15),
-                        nip: BubbleNip.rightBottom,
-                        nipHeight: 18,
-                        nipWidth: 12,
-                        child: SizedBox(
-                          width: 215.w,
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: CustomText(
-                              'Hey, Alex! Nice to meet you! I’d like to hire a walker and you’re perfect one for me. Can you help me out?',
-                              color: AppColors.white,
-                              textAlign: TextAlign.left,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  const ChatBubble(
+                    message:
+                        'Hey, Alex! Nice to meet you! I’d like to hire a walker and you’re perfect one for me. Can you help me out?',
+                    isUserMessage: true,
                   ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Bubble(
-                        elevation: 0,
-                        color: const Color(0xFFECEEF1),
-                        showNip: true,
-                        radius: const Radius.circular(15),
-                        nip: BubbleNip.leftBottom,
-                        nipHeight: 18,
-                        nipWidth: 12,
-                        child: SizedBox(
-                          width: 215.w,
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: CustomText(
-                              'Hi! That’s great! Let me give you a call and we’ll discuss all the details',
-                              color: AppColors.black2B,
-                              textAlign: TextAlign.left,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  SizedBox(height: 10.h),
+                  const ChatBubble(
+                    message:
+                        'Hi! That’s great! Let me give you a call and we’ll discuss all the details',
+                    isUserMessage: false,
                   ),
                   SizedBox(height: 10.h),
                   const CustomText(
                     '12:30',
-                    color: Color(0xFFAEAEB2),
+                    color: AppColors.lightGrey,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 10.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Bubble(
-                        color: AppColors.orangeDark,
-                        elevation: 0,
-                        showNip: true,
-                        radius: const Radius.circular(15),
-                        nip: BubbleNip.rightBottom,
-                        nipHeight: 18.h,
-                        nipWidth: 12.w,
-                        child: SizedBox(
-                          width: 215.w,
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: CustomText(
-                              'Okay, I’m waiting for a call)',
-                              color: AppColors.white,
-                              textAlign: TextAlign.left,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  const ChatBubble(
+                    message: 'Okay, I’m waiting for a call)',
+                    isUserMessage: true,
                   ),
                 ],
               ),
@@ -180,58 +113,104 @@ class ChatView extends StatelessWidget {
                     child: SvgPicture.asset('plus'.svg),
                   ),
                   SizedBox(width: 17.w),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.greyF5,
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    width: 280.w,
-                    alignment: Alignment.center,
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minWidth: 280.w,
-                        maxWidth: 280.w,
-                        minHeight: 25.0.h,
-                        maxHeight: 135.h,
-                      ),
-                      child: Scrollbar(
-                        child: TextField(
-                          textAlignVertical: TextAlignVertical.center,
-                          maxLines: null,
-                          style: GoogleFonts.poppins(
-                            fontSize: 17.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          keyboardType: TextInputType.multiline,
-                          textInputAction: TextInputAction.send,
-                          cursorColor: AppColors.orangeDark,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(
-                              left: 12.w,
-                              top: 10.h,
-                              bottom: 10.h,
-                            ),
-                            hintText: ' Aa',
-                            hintStyle: GoogleFonts.poppins(
-                              fontSize: 17.sp,
-                            ),
-                            border: InputBorder.none,
-                            suffixIcon: Icon(
-                              Icons.mic,
-                              size: 25.r,
-                              color: const Color(0xFF130F26),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  buildChatBox(),
                 ],
               ),
             )
           ],
         ),
       ),
+    );
+  }
+
+  Widget buildChatBox() {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.greyF5,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      width: 280.w,
+      alignment: Alignment.center,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minWidth: 280.w,
+          maxWidth: 280.w,
+          minHeight: 25.0.h,
+          maxHeight: 135.h,
+        ),
+        child: Scrollbar(
+          child: TextField(
+            textAlignVertical: TextAlignVertical.center,
+            maxLines: null,
+            style: GoogleFonts.poppins(
+              fontSize: 17.sp,
+              fontWeight: FontWeight.w500,
+            ),
+            keyboardType: TextInputType.multiline,
+            textInputAction: TextInputAction.send,
+            cursorColor: AppColors.orangeDark,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.only(
+                left: 12.w,
+                top: 10.h,
+                bottom: 10.h,
+              ),
+              hintText: ' Aa',
+              hintStyle: GoogleFonts.poppins(
+                fontSize: 17.sp,
+              ),
+              border: InputBorder.none,
+              suffixIcon: Icon(
+                Icons.mic,
+                size: 25.r,
+                color: const Color(0xFF130F26),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ChatBubble extends StatelessWidget {
+  final String message;
+  final bool isUserMessage;
+  const ChatBubble({
+    Key? key,
+    required this.message,
+    required this.isUserMessage,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment:
+          isUserMessage ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: [
+        Bubble(
+          elevation: 0,
+          color: const Color(0xFFECEEF1),
+          showNip: true,
+          radius: const Radius.circular(15),
+          nip: isUserMessage ? BubbleNip.rightBottom : BubbleNip.leftBottom,
+          nipHeight: 18,
+          nipWidth: 12,
+          child: SizedBox(
+            width: 215.w,
+            child: Padding(
+              padding: EdgeInsets.all(8.w),
+              child: CustomText(
+                message,
+                color: isUserMessage ? AppColors.white : AppColors.black2B,
+                textAlign: TextAlign.left,
+                fontWeight: FontWeight.w500,
+                fontSize: 13,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

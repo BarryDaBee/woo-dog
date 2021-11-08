@@ -1,9 +1,7 @@
-import 'package:acumen_app/ui/views/root_view/root_view.dart';
 import 'package:flutter/material.dart';
 
 import 'core/exports.dart';
 import 'core/locator.dart';
-import 'ui/views/chat_view/chat_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +22,8 @@ class WooDogApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const ChatView(),
+        initialRoute: Routes.onboardingView,
+        onGenerateRoute: Routes.onGenerateRoute,
       ),
     );
   }
