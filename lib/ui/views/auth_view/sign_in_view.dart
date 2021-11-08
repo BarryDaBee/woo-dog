@@ -17,7 +17,7 @@ class SignInView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 50.h),
-            InkWell(
+            GestureDetector(
               onTap: () {
                 Navigator.pop(context);
               },
@@ -31,6 +31,7 @@ class SignInView extends StatelessWidget {
               'Sign in',
               fontWeight: FontWeight.w700,
               fontSize: 34,
+              color: AppColors.black2B,
             ),
             const CustomText(
               'Fill in your details to begin',

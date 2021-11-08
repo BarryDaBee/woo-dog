@@ -2,6 +2,7 @@ import 'package:acumen_app/core/exports.dart';
 import 'package:acumen_app/ui/views/auth_view/onboarding_view.dart';
 import 'package:acumen_app/ui/views/auth_view/sign_in_view.dart';
 import 'package:acumen_app/ui/views/auth_view/sign_up_view.dart';
+import 'package:acumen_app/ui/views/chat_view/chat_view.dart';
 import 'package:acumen_app/ui/views/root_view/root_view.dart';
 import 'package:acumen_app/ui/views/walker_info_view/walker_info_view.dart';
 
@@ -34,6 +35,10 @@ class Routes {
       case walkerInfoView:
         return MaterialPageRoute(
           builder: (context) => const WalkerInfoView(),
+        );
+      case chatView:
+        return MaterialPageRoute(
+          builder: (context) => const ChatView(),
         );
       default:
         return MaterialPageRoute(

@@ -100,7 +100,7 @@ class OnboardingView extends StatelessWidget {
                           SizedBox(width: 5.w),
                           InkWell(
                             onTap: () {
-                              Navigator.pushNamed(context, Routes.signUpView);
+                              Navigator.pushNamed(context, Routes.signInView);
                             },
                             child: const CustomText(
                               'Sign in',

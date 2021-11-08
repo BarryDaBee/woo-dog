@@ -54,7 +54,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       border: InputBorder.none,
                     ),
                     style: GoogleFonts.poppins(
-                      color: Colors.black,
+                      color: AppColors.black2B,
                       fontSize: 17.sp,
                       letterSpacing: shouldHide ? 2 : null,
                       fontWeight: FontWeight.w500,

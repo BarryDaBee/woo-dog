@@ -27,8 +27,10 @@ class RootView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<RootViewModel>.reactive(
+      disposeViewModel: false,
       builder: (context, model, child) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           body: getCurrentView(model.currentIndex),
           bottomNavigationBar: BottomNavigationBar(
             onTap: (index) {

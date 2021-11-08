@@ -17,7 +17,7 @@ class SignUpView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 50.h),
-            InkWell(
+            GestureDetector(
               onTap: () {
                 Navigator.pop(context);
               },

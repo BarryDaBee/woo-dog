@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'core/exports.dart';
 import 'core/locator.dart';
@@ -9,8 +10,21 @@ void main() {
   runApp(const WooDogApp());
 }
 
-class WooDogApp extends StatelessWidget {
+class WooDogApp extends StatefulWidget {
   const WooDogApp({Key? key}) : super(key: key);
+
+  @override
+  State<WooDogApp> createState() => _WooDogAppState();
+}
+
+class _WooDogAppState extends State<WooDogApp> {
+  @override
+  void initState() {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +34,7 @@ class WooDogApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Acumen App',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: AppColors.white,
         ),
         initialRoute: Routes.onboardingView,
         onGenerateRoute: Routes.onGenerateRoute,

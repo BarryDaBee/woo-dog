@@ -1,4 +1,5 @@
 import 'package:acumen_app/core/exports.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchBarButton extends StatelessWidget {
   const SearchBarButton({Key? key}) : super(key: key);
@@ -11,19 +12,41 @@ class SearchBarButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: AppColors.lighterGrey,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 14.w),
+      alignment: Alignment.centerLeft,
+      padding: EdgeInsets.symmetric(
+        horizontal: 14.w,
+      ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SvgPicture.asset(
             'location'.svg,
           ),
           SizedBox(width: 8.w),
-          const CustomText(
-            'Kiyv, Ukraine',
-            color: AppColors.greyA1,
-            fontSize: 17,
+          Expanded(
+            child: SizedBox(
+              height: 21.5.h,
+              child: TextField(
+                cursorColor: AppColors.orangeDark,
+                style: GoogleFonts.poppins(
+                  color: AppColors.black2B,
+                  fontSize: 17.sp,
+                ),
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  isCollapsed: true,
+                  contentPadding: EdgeInsets.zero,
+                  border: InputBorder.none,
+                  hintText: 'Kiyv, Ukraine',
+                  hintStyle: GoogleFonts.poppins(
+                    color: AppColors.greyA1,
+                    fontSize: 17.sp,
+                  ),
+                ),
+              ),
+            ),
           ),
-          const Spacer(),
+          SizedBox(width: 8.w),
           Stack(
             clipBehavior: Clip.none,
             children: [
@@ -43,3 +66,8 @@ class SearchBarButton extends StatelessWidget {
     );
   }
 }
+// const CustomText(
+// 'Kiyv, Ukraine',
+// color: AppColors.greyA1,
+// fontSize: 17,
+// ),
