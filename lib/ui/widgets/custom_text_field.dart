@@ -4,10 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomTextField extends StatefulWidget {
   final String label;
   final TextInputType? inputType;
-  final ValueChanged<String>? onSubmitted;
+  final ValueChanged<String>? onChanged;
+  final FormFieldValidator<String>? validator;
+  final String? initialValue;
 
   const CustomTextField(
-      {Key? key, required this.label, this.inputType, this.onSubmitted})
+      {Key? key,
+      required this.label,
+      this.inputType,
+      this.onChanged,
+      this.validator,
+      this.initialValue})
       : super(key: key);
 
   @override
@@ -16,7 +23,6 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool shouldHide = false;
-  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +48,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 SizedBox(
                   height: 26,
                   child: TextFormField(
+                    initialValue: widget.initialValue,
                     keyboardType: widget.inputType,
                     obscureText: shouldHide,
-                    controller: _controller,
                     cursorColor: AppColors.orangeDark,
-                    onFieldSubmitted: widget.onSubmitted,
+                    onChanged: widget.onChanged,
                     maxLines: 1,
+                    validator: widget.validator,
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.symmetric(vertical: 1),
                       isDense: true,

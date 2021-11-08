@@ -3,8 +3,10 @@ import 'package:acumen_app/core/exports.dart';
 class CustomGradientButton extends StatelessWidget {
   final String text;
   final VoidCallback? onTap;
+  final bool isBusy;
 
-  const CustomGradientButton({Key? key, required this.text, this.onTap})
+  const CustomGradientButton(
+      {Key? key, required this.text, this.onTap, this.isBusy = false})
       : super(key: key);
 
   @override
@@ -25,12 +27,16 @@ class CustomGradientButton extends StatelessWidget {
             ],
           ),
         ),
-        child: CustomText(
-          text,
-          fontSize: 17,
-          fontWeight: FontWeight.w700,
-          color: AppColors.white,
-        ),
+        child: isBusy
+            ? const CircularProgressIndicator(
+                color: AppColors.white,
+              )
+            : CustomText(
+                text,
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
+                color: AppColors.white,
+              ),
       ),
     );
   }

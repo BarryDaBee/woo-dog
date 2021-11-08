@@ -22,11 +22,11 @@ class Routes {
         );
       case signUpView:
         return MaterialPageRoute(
-          builder: (context) => const SignUpView(),
+          builder: (context) => SignUpView(),
         );
       case signInView:
         return MaterialPageRoute(
-          builder: (context) => const SignInView(),
+          builder: (context) => SignInView(),
         );
       case onboardingView:
         return MaterialPageRoute(

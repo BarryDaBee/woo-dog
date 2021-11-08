@@ -5,3 +5,5 @@ export 'extensions/string_extension.dart';
 export 'package:acumen_app/ui/widgets/custom_text.dart';
 export 'package:acumen_app/ui/shared/app_colors.dart';
 export 'routes.dart';
+export 'package:stacked/stacked.dart';
+export 'locator.dart';
