@@ -97,9 +97,8 @@ class OnboardingView extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             color: AppColors.white,
                           ),
-                          SizedBox(width: 5.w),
-                          InkWell(
-                            onTap: () {
+                          TextButton(
+                            onPressed: () {
                               Navigator.pushNamed(context, Routes.signInView);
                             },
                             child: const CustomText(

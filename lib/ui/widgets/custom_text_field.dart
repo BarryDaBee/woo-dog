@@ -55,6 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     onChanged: widget.onChanged,
                     maxLines: 1,
                     validator: widget.validator,
+                    textInputAction: TextInputAction.next,
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.symmetric(vertical: 1),
                       isDense: true,

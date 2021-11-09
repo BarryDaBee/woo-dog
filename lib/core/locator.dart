@@ -1,5 +1,5 @@
 import 'package:acumen_app/ui/views/auth_view/sign_in_view_model.dart';
-import 'package:acumen_app/ui/views/auth_view/sign_up_view.dart';
+
 import 'package:acumen_app/ui/views/auth_view/sign_up_view_model.dart';
 import 'package:acumen_app/ui/views/root_view/root_view_model.dart';
 import 'package:get_it/get_it.dart';

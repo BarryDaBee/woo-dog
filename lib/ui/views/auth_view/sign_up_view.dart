@@ -17,92 +17,94 @@ class SignUpView extends StatelessWidget {
         disposeViewModel: false,
         builder: (context, model, child) {
           return Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: Padding(
+            resizeToAvoidBottomInset: true,
+            body: ListView(
+              shrinkWrap: true,
               padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 50.h),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.all(4.r),
-                      child: SvgPicture.asset('arrow_left'.svg),
+              children: [
+                SizedBox(height: 50.h),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.all(4.r),
+                        child: SvgPicture.asset('arrow_left'.svg),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 22.h),
-                  const CustomText(
-                    'Let\'s start here',
-                    fontWeight: FontWeight.w700,
-                    fontSize: 34,
-                  ),
-                  const CustomText(
-                    'Fill in your details to begin',
-                    fontSize: 17,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.grey7A,
-                  ),
-                  SizedBox(height: 22.h),
-                  Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        CustomTextField(
-                          initialValue: model.firstname,
-                          label: 'First name',
-                          inputType: TextInputType.name,
+                  ],
+                ),
+                SizedBox(height: 22.h),
+                const CustomText(
+                  'Let\'s start here',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 34,
+                ),
+                const CustomText(
+                  'Fill in your details to begin',
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.grey7A,
+                ),
+                SizedBox(height: 22.h),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      CustomTextField(
+                        initialValue: model.firstname,
+                        label: 'First name',
+                        inputType: TextInputType.name,
+                        onChanged: (value) {
+                          model.firstname = value;
+                        },
+                      ),
+                      SizedBox(height: 22.h),
+                      CustomTextField(
+                        initialValue: model.lastname,
+                        label: 'Last name',
+                        inputType: TextInputType.name,
+                        onChanged: (value) {
+                          model.lastname = value;
+                        },
+                      ),
+                      SizedBox(height: 22.h),
+                      CustomTextField(
+                          initialValue: model.email,
+                          label: 'E-mail',
+                          inputType: TextInputType.emailAddress,
                           onChanged: (value) {
-                            model.firstname = value;
-                          },
-                        ),
-                        SizedBox(height: 22.h),
-                        CustomTextField(
-                          initialValue: model.lastname,
-                          label: 'Last name',
-                          inputType: TextInputType.name,
-                          onChanged: (value) {
-                            model.lastname = value;
-                          },
-                        ),
-                        SizedBox(height: 22.h),
-                        CustomTextField(
-                            initialValue: model.email,
-                            label: 'E-mail',
-                            inputType: TextInputType.emailAddress,
-                            onChanged: (value) {
-                              model.email = value;
-                            }),
-                        SizedBox(height: 22.h),
-                        CustomTextField(
-                          initialValue: model.password,
-                          label: 'Password',
-                          inputType: TextInputType.visiblePassword,
-                          onChanged: (value) {
-                            model.password = value;
-                          },
-                        ),
-                        SizedBox(height: 31.h),
-                        CustomGradientButton(
-                          text: 'Sign up',
-                          isBusy: model.isBusy,
-                          onTap: () async {
-                            await model.signUp(context);
-                          },
-                        ),
-                      ],
-                    ),
+                            model.email = value;
+                          }),
+                      SizedBox(height: 22.h),
+                      CustomTextField(
+                        initialValue: model.password,
+                        label: 'Password',
+                        inputType: TextInputType.visiblePassword,
+                        onChanged: (value) {
+                          model.password = value;
+                        },
+                      ),
+                      SizedBox(height: 31.h),
+                      CustomGradientButton(
+                        text: 'Sign up',
+                        isBusy: model.isBusy,
+                        onTap: () async {
+                          await model.signUp(context);
+                        },
+                      ),
+                    ],
                   ),
-                  const Spacer(),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 33.w),
-                    child: buildTermsOfUse(),
-                  ),
-                  SizedBox(height: 30.h),
-                ],
-              ),
+                ),
+                SizedBox(height: 105.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 33.w),
+                  child: buildTermsOfUse(),
+                ),
+                SizedBox(height: 30.h),
+              ],
             ),
           );
         });
@@ -128,10 +130,7 @@ class SignUpView extends StatelessWidget {
               fontSize: 13.sp,
               fontWeight: FontWeight.w500,
             ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                print('Terms of Use');
-              },
+            recognizer: TapGestureRecognizer()..onTap = () {},
           ),
           TextSpan(
             text: ' and',
@@ -148,10 +147,7 @@ class SignUpView extends StatelessWidget {
               fontSize: 13.sp,
               fontWeight: FontWeight.w500,
             ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                print('Privacy Policy');
-              },
+            recognizer: TapGestureRecognizer()..onTap = () {},
           ),
         ],
       ),

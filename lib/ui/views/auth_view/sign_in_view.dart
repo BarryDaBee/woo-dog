@@ -113,10 +113,7 @@ class SignInView extends StatelessWidget {
               fontSize: 13.sp,
               fontWeight: FontWeight.w500,
             ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                print('Terms of Use');
-              },
+            recognizer: TapGestureRecognizer()..onTap = () {},
           ),
           TextSpan(
             text: ' and',
@@ -133,10 +130,7 @@ class SignInView extends StatelessWidget {
               fontSize: 13.sp,
               fontWeight: FontWeight.w500,
             ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                print('Privacy Policy');
-              },
+            recognizer: TapGestureRecognizer()..onTap = () {},
           ),
         ],
       ),

@@ -18,7 +18,7 @@ class WalkerInfoView extends StatelessWidget {
             'alex_murray'.png,
             fit: BoxFit.cover,
             height: 447.h,
-            width: ScreenUtil.defaultSize.width,
+            width: 375.w,
           ),
           Positioned(
             top: 40,

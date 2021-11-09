@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,7 +8,9 @@ import 'core/locator.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
-  runApp(const WooDogApp());
+  runApp(
+    const WooDogApp(), // Wrap your app
+  );
 }
 
 class WooDogApp extends StatefulWidget {
@@ -32,7 +35,7 @@ class _WooDogAppState extends State<WooDogApp> {
       designSize: const Size(375, 812),
       builder: () => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Acumen App',
+        title: 'Woo Dog',
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.white,
         ),
